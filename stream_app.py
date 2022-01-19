@@ -170,19 +170,19 @@ def main ():
         PAY_MAY=st.number_input('PAY_MAY',max_value=8,min_value=-2)
         PAY_APR=st.number_input('PAY_APR',max_value=8,min_value=-2)
 
-        BILL_AMT_SEPT=st.number_input('BILL_AMT_SEPT')
-        BILL_AMT_AUG=st.number_input('BILL_AMT_AUG')
-        BILL_AMT_JUL=st.number_input('BILL_AMT_JUL')
-        BILL_AMT_JUN=st.number_input('BILL_AMT_JUN')
-        BILL_AMT_MAY=st.number_input('BILL_AMT_MAY')
-        BILL_AMT_APR=st.number_input('BILL_AMT_APR')
+        BILL_AMT_SEPT=st.number_input('BILL_AMT_SEPT', min_value=0)
+        BILL_AMT_AUG=st.number_input('BILL_AMT_AUG', min_value=0)
+        BILL_AMT_JUL=st.number_input('BILL_AMT_JUL', min_value=0)
+        BILL_AMT_JUN=st.number_input('BILL_AMT_JUN', min_value=0)
+        BILL_AMT_MAY=st.number_input('BILL_AMT_MAY', min_value=0)
+        BILL_AMT_APR=st.number_input('BILL_AMT_APR', min_value=0)
 
-        PAY_AMT_SEPT=st.number_input('PAY_AMT_SEPT')
-        PAY_AMT_AUG=st.number_input('PAY_AMT_AUG')
-        PAY_AMT_JUL=st.number_input('PAY_AMT_JUL')
-        PAY_AMT_JUN=st.number_input('PAY_AMT_JUN')
-        PAY_AMT_MAY=st.number_input('PAY_AMT_MAY')
-        PAY_AMT_APR=st.number_input('PAY_AMT_APR')
+        PAY_AMT_SEPT=st.number_input('PAY_AMT_SEPT', min_value=0)
+        PAY_AMT_AUG=st.number_input('PAY_AMT_AUG', min_value=0)
+        PAY_AMT_JUL=st.number_input('PAY_AMT_JUL', min_value=0)
+        PAY_AMT_JUN=st.number_input('PAY_AMT_JUN', min_value=0)
+        PAY_AMT_MAY=st.number_input('PAY_AMT_MAY', min_value=0)
+        PAY_AMT_APR=st.number_input('PAY_AMT_APR', min_value=0)
 
         if st.button("Predict"):
             default_result= classifier.predict([[LIMIT_BAL, PAY_SEPT, PAY_AUG, PAY_JUL, PAY_JUN, PAY_MAY,
@@ -195,9 +195,6 @@ def main ():
         age_group_21_30, age_group_31_40, age_group_41_50,
         age_group_51_60, age_group_above_60]])    
             st.success('The output is {}'.format(default_result))
-
-
-
 
 if __name__ == '__main__':
     main()
