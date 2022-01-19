@@ -12,20 +12,20 @@ classifier=pickle.load(pickle_in)
 
 def main ():
 
-    st.title("Wellcome aliens")
-    st.header('Select a ML project from the sidebar')
-
     activiteis = ["Home", "Bike sharing demand prediction",'Credit Card Default Prediction', "About","Contack Us","Error and Solutions"]
     choice = st.sidebar.selectbox("Select Activity", activiteis)
 
     if choice == "Home":
+        st.title("Wellcome aliens")
+        st.header('Select a ML project from the sidebar')       
         html_temp_home1 = """<div style="background-color:#6D7B8D;padding:10px">
                                             <h4 style="color:white;text-align:center;">
                                             Bike sharing demand prediction.</h4>
                                             </div>
                                             </br>"""
 
-    if choice == "Bike sharing demand prediction":                                       
+    if choice == "Bike sharing demand prediction":    
+        st.header('Bike sharing demand prediction')                                   
         Seasons = st.selectbox("Seasons",['Spring','Summer','Winter','Autumn'])
         if Seasons=='Spring':
             Seasons_Spring = 1
@@ -85,6 +85,7 @@ def main ():
 
 
     if choice == "Credit Card Default Prediction":
+        st.header('Credit Card Default Prediction')
         LIMIT_BAL = st.number_input("LIMIT_BAL",value =1000)
 
         sex=st.selectbox('sex',['Male','Female'])
