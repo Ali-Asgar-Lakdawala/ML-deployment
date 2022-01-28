@@ -3,3 +3,4 @@ lightgbm
 sklearn
 sklearn.utils
 datetime
+geopy.distance
