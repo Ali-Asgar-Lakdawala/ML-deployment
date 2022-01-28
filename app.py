@@ -9,7 +9,7 @@ regressor=pickle.load(pickle_in)
 pickle_in= open('card_default_pred_model.pkl','rb')
 classifier=pickle.load(pickle_in)
 
-pickle_in= open('taxi_time_prediction_rfr.pkl','rb')
+pickle_in= open('trip_time_pred_lg.pkl','rb')
 taxi_regressor=pickle.load(pickle_in)
   
 
@@ -299,7 +299,7 @@ def main ():
 
 
         result= taxi_regressor.predict([[pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude,distance,vendor_id_1,vendor_id_2,passenger_count_1,
-                                    passenger_count_2,passenger_count_3,passenger_count_4,passenger_count_5,passenger_count_6,store_and_fwd_flag_N,store_and_fwd_flag_Y,
+                                    passenger_count_2,passenger_count_3,passenger_count_4,passenger_count_5,passenger_count_6,
                                     pickup_day_0,pickup_day_1,pickup_day_2,pickup_day_3,pickup_day_4,pickup_day_5,pickup_day_6,pickup_month_1,pickup_month_2,
                                     pickup_month_3,pickup_month_4,pickup_month_5,pickup_month_6,pickup_period_Afternoon,pickup_period_Evening,pickup_period_Morning,
                                     pickup_period_Night]])
