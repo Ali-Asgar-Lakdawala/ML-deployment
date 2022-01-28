@@ -3,4 +3,4 @@ lightgbm
 sklearn
 sklearn.utils
 datetime
-geopy.distance
+geopy.distance==21.3.1
