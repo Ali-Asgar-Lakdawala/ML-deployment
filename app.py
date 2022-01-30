@@ -82,9 +82,9 @@ def main ():
         Snowfall_cm = st.number_input("Snowfall_cm",value =0)
 
         if st.button("Predict count"):
-            result= regressor.predict([[Seasons_Spring,Seasons_Summer,Seasons_Winter,Holiday_No_Holiday,Functioning_Day_Yes,Hour,Temperature_C,Humidity_per
+            bike_count_result= regressor.predict([[Seasons_Spring,Seasons_Summer,Seasons_Winter,Holiday_No_Holiday,Functioning_Day_Yes,Hour,Temperature_C,Humidity_per
                                     ,Wind_speed_m_per_sec,Visibility_10m,Dew_point_temp_c,Solar_Radiation,Rainfall_mm,Snowfall_cm,month,weekend]])    
-            st.success('{} number of bikes will be required '.format(round(int(result))))
+            st.success('{} number of bikes will be required '.format(round(int(bike_count_result))))
 
     if choice == "Credit Card Default Prediction":
 
@@ -198,10 +198,11 @@ def main ():
         MARRIAGE_married, MARRIAGE_others, MARRIAGE_single,
         age_group_21_30, age_group_31_40, age_group_41_50,
         age_group_51_60, age_group_above_60]])
-        if  int(default_result)==1:
-            st.error('This person will default ')
-        else:
-            st.success('this person wil not default')
+
+            if  int(default_result)==1:
+                st.error('This person will default ')
+            else:
+                st.success('this person wil not default')
 
     if choice == "Taxi Trip Time Prediction":
 
