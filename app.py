@@ -4,14 +4,14 @@ import datetime
 from geopy.distance import geodesic 
 import numpy as np
 
-pickle_in= open('bike_demand_pred_model.pkl','rb')
-regressor=pickle.load(pickle_in)
+bike= open('bike_demand_pred_model.pkl','rb')
+regressor=pickle.load(bike)
 
-pickle_in= open('card_default_pred_model.pkl','rb')
-classifier=pickle.load(pickle_in)
+card= open('card_default_pred_model.pkl','rb')
+classifier=pickle.load(card)
 
-pickle_in= open('trip_time_pred_rfr.pkl','rb')
-taxi_regressor=pickle.load(pickle_in)
+taxi= open('trip_time_pred_rfr.pkl','rb')
+taxi_regressor=pickle.load(taxi)
 
   
 
