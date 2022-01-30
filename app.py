@@ -10,15 +10,15 @@ regressor=pickle.load(bike)
 card= open('card_default_pred_model.pkl','rb')
 classifier=pickle.load(card)
 
-taxi= open('trip_time_pred_rfr.pkl','rb')
-taxi_regressor=pickle.load(taxi)
+#taxi= open('trip_time_pred_rfr.pkl','rb')
+#taxi_regressor=pickle.load(taxi)
 
   
 
 def main ():
 
     #activiteis = ["Home", "Bike sharing demand prediction",'Credit Card Default Prediction','Taxi Trip Time Prediction', "About","Contack Us","Error and Solutions"]
-    activiteis = ["Home", "Bike sharing demand prediction",'Credit Card Default Prediction','Taxi Trip Time Prediction',"Contack Us"]
+    activiteis = ["Home", "Bike sharing demand prediction",'Credit Card Default Prediction',"Contack Us"]
     choice = st.sidebar.selectbox("Select Activity", activiteis)
 
     if choice == "Home":
@@ -311,14 +311,14 @@ def main ():
                                             #0.        ,   0.        ]])
         #result= taxi_regressor.predict(array)
 
-        result= taxi_regressor.predict([[pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude,distance,vendor_id_1,vendor_id_2,passenger_count_1,
+        '''result= taxi_regressor.predict([[pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude,distance,vendor_id_1,vendor_id_2,passenger_count_1,
                                     passenger_count_2,passenger_count_3,passenger_count_4,passenger_count_5,passenger_count_6,
                                     pickup_day_0,pickup_day_1,pickup_day_2,pickup_day_3,pickup_day_4,pickup_day_5,pickup_day_6,pickup_month_1,pickup_month_2,
                                     pickup_month_3,pickup_month_4,pickup_month_5,pickup_month_6,pickup_period_Afternoon,pickup_period_Evening,pickup_period_Morning,
-                                    pickup_period_Night]])
+                                    pickup_period_Night]])'''
         
-        if st.button("Predict count"):
-            st.success('The Trip will take {} minutes'.format(round(int(result/60)))) 
+        '''if st.button("Predict count"):
+            st.success('The Trip will take {} minutes'.format(round(int(result/60)))) '''
 
     if choice == "About":
         pass
