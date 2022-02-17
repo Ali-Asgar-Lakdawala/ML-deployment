@@ -12,9 +12,10 @@ This project is made for the deployment of the following projects
 We have created front-end using Streamlit for webapp
 
 
+
 | Website | Link |
 | ------ | ------ |
-| Heroku | https://my-ml-deployment.herokuapp.com/ |
+| Heroku | https://my-ml-deployments.herokuapp.com/ |
 | Streamlit | https://share.streamlit.io/ali-asgar-lakdawala/ml-deployment/main/app.py |
 
 ## Conclusion

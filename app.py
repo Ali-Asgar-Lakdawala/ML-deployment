@@ -3,22 +3,12 @@ import streamlit as st
 import datetime
 from geopy.distance import geodesic 
 import numpy as np
-
-bike= open('bike_demand_pred_model.pkl','rb')
-regressor=pickle.load(bike)
-
-card= open('card_default_pred_model.pkl','rb')
-classifier=pickle.load(card)
-
-#taxi= open('trip_time_pred_rfr.pkl','rb')
-#taxi_regressor=pickle.load(taxi)
-
-  
+import joblib
 
 def main ():
 
     #activiteis = ["Home", "Bike sharing demand prediction",'Credit Card Default Prediction','Taxi Trip Time Prediction', "About","Contack Us","Error and Solutions"]
-    activiteis = ["Home", "Bike sharing demand prediction",'Credit Card Default Prediction',"Contack Us"]
+    activiteis = ["Home", "Bike sharing demand prediction",'Credit Card Default Prediction','Taxi Trip Time Prediction',"Contack Us"]
     choice = st.sidebar.selectbox("Select Activity", activiteis)
 
     if choice == "Home":
@@ -30,7 +20,10 @@ def main ():
                                             </div>
                                             </br>"""
 
-    if choice == "Bike sharing demand prediction":    
+    if choice == "Bike sharing demand prediction":
+        pickle_in= open('bike_demand_pred_model.pkl','rb')
+        regressor=pickle.load(pickle_in) 
+
         st.header('Bike sharing demand prediction')                                   
 
         date = st.date_input("Date for demand prediction",datetime.date(2021, 3, 6))
@@ -82,11 +75,13 @@ def main ():
         Snowfall_cm = st.number_input("Snowfall_cm",value =0)
 
         if st.button("Predict count"):
-            bike_count_result= regressor.predict([[Seasons_Spring,Seasons_Summer,Seasons_Winter,Holiday_No_Holiday,Functioning_Day_Yes,Hour,Temperature_C,Humidity_per
+            result= regressor.predict([[Seasons_Spring,Seasons_Summer,Seasons_Winter,Holiday_No_Holiday,Functioning_Day_Yes,Hour,Temperature_C,Humidity_per
                                     ,Wind_speed_m_per_sec,Visibility_10m,Dew_point_temp_c,Solar_Radiation,Rainfall_mm,Snowfall_cm,month,weekend]])    
-            st.success('{} number of bikes will be required '.format(round(int(bike_count_result))))
+            st.success('{} number of bikes will be required '.format(round(int(result))))
 
     if choice == "Credit Card Default Prediction":
+        pickle_in= open('card_default_pred_model.pkl','rb')
+        classifier=pickle.load(pickle_in)
 
         st.header('Credit Card Default Prediction')
         LIMIT_BAL = st.number_input("LIMIT_BAL",value =1000)
@@ -198,13 +193,16 @@ def main ():
         MARRIAGE_married, MARRIAGE_others, MARRIAGE_single,
         age_group_21_30, age_group_31_40, age_group_41_50,
         age_group_51_60, age_group_above_60]])
-
+        
             if  int(default_result)==1:
                 st.error('This person will default ')
             else:
                 st.success('this person wil not default')
 
     if choice == "Taxi Trip Time Prediction":
+
+        taxi= open('finalized_model_rfr.sav','rb')
+        taxi_regressor=joblib.load(taxi)
 
         st.header('Taxi trip time prediction')
 
@@ -311,25 +309,22 @@ def main ():
                                             #0.        ,   0.        ]])
         #result= taxi_regressor.predict(array)
 
-        '''result= taxi_regressor.predict([[pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude,distance,vendor_id_1,vendor_id_2,passenger_count_1,
+        result= taxi_regressor.predict([[pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude,distance,vendor_id_1,vendor_id_2,passenger_count_1,
                                     passenger_count_2,passenger_count_3,passenger_count_4,passenger_count_5,passenger_count_6,
                                     pickup_day_0,pickup_day_1,pickup_day_2,pickup_day_3,pickup_day_4,pickup_day_5,pickup_day_6,pickup_month_1,pickup_month_2,
                                     pickup_month_3,pickup_month_4,pickup_month_5,pickup_month_6,pickup_period_Afternoon,pickup_period_Evening,pickup_period_Morning,
-                                    pickup_period_Night]])'''
+                                    pickup_period_Night]])
         
-        '''if st.button("Predict count"):
-            st.success('The Trip will take {} minutes'.format(round(int(result/60)))) '''
+        if st.button("Predict count"):
+            st.success('The Trip will take {} minutes'.format(round(int(result/60)))) 
 
     if choice == "About":
         pass
 
-
-
-
     elif choice == "Contack Us":
         st.header("Contact Details")
         st.write(""" LinkedIn profile Link""")
-        st.write(""" >* [Ali Asgar Lakadwala] (https://www.linkedin.com/in/ali-asgar-lakdawala/)""")
+        st.write(""" >* Ali Asgar Lakadwala: https://www.linkedin.com/in/ali-asgar-lakdawala/""")
         st.write("""Email Id""")
         st.write(""">* Ali Asgar Lakadwala : aliasgarlakdawala0209@gmail.com""")
 

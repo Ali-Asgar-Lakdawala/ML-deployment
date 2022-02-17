@@ -1,0 +1,42 @@
+if passenger_count==1:
+           passenger_count_1=1
+           passenger_count_2=0
+           passenger_count_3=0
+           passenger_count_4=0
+           passenger_count_5=0
+           passenger_count_6=0
+        if passenger_count==2:
+           passenger_count_1=0
+           passenger_count_2=2
+           passenger_count_3=0
+           passenger_count_4=0
+           passenger_count_5=0
+           passenger_count_6=0
+        if passenger_count==3:
+           passenger_count_1=0
+           passenger_count_2=0
+           passenger_count_3=1
+           passenger_count_4=0
+           passenger_count_5=0
+           passenger_count_6=0
+        if passenger_count==4:
+           passenger_count_1=0
+           passenger_count_2=0
+           passenger_count_3=0
+           passenger_count_4=1
+           passenger_count_5=0
+           passenger_count_6=0
+        if passenger_count==5:
+           passenger_count_1=0
+           passenger_count_2=0
+           passenger_count_3=0
+           passenger_count_4=0
+           passenger_count_5=1
+           passenger_count_6=0
+        if passenger_count==6:
+           passenger_count_1=0
+           passenger_count_2=0
+           passenger_count_3=0
+           passenger_count_4=0
+           passenger_count_5=0
+           passenger_count_6=1

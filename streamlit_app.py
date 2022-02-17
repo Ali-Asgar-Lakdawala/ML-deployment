@@ -1,6 +1,4 @@
-import numpy as np
 import pickle
-import pandas as pd
 import streamlit as st 
 
 pickle_in= open('bike_demand_pred_model.pkl','rb')
